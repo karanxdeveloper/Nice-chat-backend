@@ -49,7 +49,8 @@ io.on("connection", (socket) => {
 app.use(express.json({ limit: "10mb" }))
 app.use(cors({
     origin:"https://nice-chat-gamma.vercel.app",
-    credentials:true
+    credentials:true,
+    methods:['GET','POST','PUT','OPTIONS']
 }))
 
 //Route setup 
