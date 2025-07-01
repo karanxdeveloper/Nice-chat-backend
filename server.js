@@ -48,9 +48,9 @@ io.on("connection", (socket) => {
 // app.use(express.json())
 app.use(express.json({ limit: "10mb" }))
 app.use(cors({
-    origin:"https://nice-chat-gamma.vercel.app",
-    credentials:true,
-    methods:['GET','POST','PUT','OPTIONS']
+    origin: "https://nice-chat-gamma.vercel.app",
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'OPTIONS']
 }))
 
 //Route setup 
@@ -60,10 +60,8 @@ app.use("/api/messages", messageRouter)
 
 //Connect to MongoDB
 await connectDB()
-if (process.env.NODE_ENV !== "production") {
-    const PORT = process.env.PORT || 5000
-    server.listen(PORT, () => console.log("server is running on PORT " + PORT))
-}
+const PORT = process.env.PORT || 5000
+server.listen(PORT, () => console.log("server is running on PORT " + PORT))
 
-// Export server for vercel
-export default server;
+
+
